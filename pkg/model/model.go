@@ -2,15 +2,20 @@ package model
 
 import "time"
 
+const (
+	TASK_CREATED     = iota
+	TASK_IN_PROGRESS = 1
+	TASK_FINISHED    = 2
+)
+
 type User struct {
-	Id    uint
-	Name  string
-	Email string
+	Name  string `json:"name"`
+	Email string `json:"email"`
 }
 
 type Task struct {
 	Id          uint      `json:"id"`
-	UserId      uint      `json:"user_id"`
+	Email       string    `json:"email"`
 	Description string    `json:"description"`
 	Status      uint      `json:"status"`
 	CreatedTime time.Time `json:"created_time"`
